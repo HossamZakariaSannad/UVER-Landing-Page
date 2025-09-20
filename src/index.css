@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    background-color: #f9fafb;  /* Slight bg change */
+  }
+}
+
+@layer components {
+  .custom-btn {
+    @apply bg-brand-indigo-600 text-white px-5 py-3 rounded-xl hover:bg-indigo-700 transition-all duration-300;
+  }
+  .section-wrapper {
+    @apply py-16 lg:py-24;
+  }
+  .content-max {
+    @apply max-w-6xl mx-auto px-6 lg:px-10;
+  }
+  .card-hover {
+    @apply hover:shadow-lg hover:scale-105 transition-transform duration-300;
+  }
+}
