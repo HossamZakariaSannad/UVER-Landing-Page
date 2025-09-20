@@ -5,11 +5,11 @@ import featureImage from '/s2.webp';
 const AppFeaturesTabs = () => {
   const panels = ['College Search', 'Recommendations', 'Tracker', 'Chat', 'Application'];
   const panelContent = {
-    'College Search': { title: 'Advanced College Discovery', description: 'Search global universities by criteria like location and programs.' },
-    'Recommendations': { title: 'Custom Suggestions', description: 'Tailored matches based on your profile.' },
-    'Tracker': { title: 'Progress Monitor', description: 'Track applications and deadlines.' },
-    'Chat': { title: 'Instant Support', description: 'Chat with experts for guidance.' },
-    'Application': { title: 'Easy Submissions', description: 'Streamlined application tools.' },
+    'College Search': { title: 'Advanced College Discovery', description: 'Effortlessly explore a vast database of colleges and universities worldwide. Filter results based on your preferences, including location, majors, campus facilities, and more. Find the perfect fit for your educational journey.', },
+    'Recommendations': { title: 'Custom Suggestions', description: 'Receive tailored college recommendations based on your academic interests, GPA, and career goals. Our smart algorithm matches you with institutions that align with your aspirations, saving you time and effort.', },
+    'Tracker': { title: 'Progress Monitor',description: 'Receive tailored college recommendations based on your academic interests, GPA, and career goals. Our smart algorithm matches you with institutions that align with your aspirations, saving you time and effort.',},
+    'Chat': { title: 'Instant Support',description: 'Connect with education counselors and peers instantly via our built-in chat. Get personalized advice, clarify doubts, and receive guidance at every step of your college application process.' },
+    'Application': { title: 'Easy Submissions', description: 'Simplify the application process with integrated tools to upload documents, write essays, and submit applications directly. Manage multiple applications seamlessly with automated reminders.', },
   };
 
   return (
