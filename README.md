@@ -25,7 +25,7 @@ npm run dev
 
 
 ## 🌐 Deployment
-Deployed on Vercel: [Live URL](NULL)
+Deployed on Vercel: [Live URL](https://uver-landing-page.vercel.app/)
 
 
 ### 🛠️ Technical Challenges Overcome
@@ -52,9 +52,4 @@ Deployed on Vercel: [Live URL](NULL)
 
 ## 🌎 Browser Compatibility
 Fully tested on Chrome, Firefox and Edge .
-
-## 🔧 Performance Features
-- **Image Optimization**: Automatic WebP conversion with lazy loading
-- **Code Splitting**: Component-based architecture for efficient loading
-- **Animation Optimization**: Hardware-accelerated animations with reduced motion support
 
