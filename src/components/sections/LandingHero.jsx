@@ -11,7 +11,7 @@ const LandingHero = () => {
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-white dark:bg-gray-800 transition-colors duration-300">
       <div className="content-max">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
           {/* Left Column: Text and Countdown */}

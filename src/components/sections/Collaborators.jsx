@@ -16,7 +16,7 @@ const Collaborators = () => {
   ];
 
   return (
-    <section className="bg-gray-800 py-24 text-white">
+    <section className="bg-gray-800 dark:bg-gray-900 py-24 text-white transition-colors duration-300">
       <div className="content-max">
         <div className="mb-12 text-left">
           <h2 className="text-4xl font-semibold mb-6">Proud collaborators with top education entities.</h2>

@@ -1,6 +1,7 @@
 import React from "react";
 import IconList from "../../ui/IconList";
 import CustomButton from "../../ui/CustomButton";
+import { motion } from "framer-motion";
 
 const ApplicationGuide = () => {
   const guideItems = [
@@ -32,7 +33,7 @@ const ApplicationGuide = () => {
       icon: "🎓",
       title: "Plan Your College Future",
       description:
-        "Use UVER’s tools to compare offers, evaluate financial aid packages, and make informed decisions.",
+        "Use UVER's tools to compare offers, evaluate financial aid packages, and make informed decisions.",
     },
     {
       icon: "🎓",
@@ -48,42 +49,79 @@ const ApplicationGuide = () => {
   const folderClip =
     "polygon(0 0, 20% 0, 28% 3%, 34% 6%, 38% 8%, 42% 9%, 100% 9%, 100% 100%, 0 100%)";
 
+  // Animation variants
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.5 }
+    },
+    hover: {
+      y: -10,
+      scale: 1.02,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const imageCardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.5 }
+    },
+    hover: {
+      y: -10,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
-    <section id="guide" className="bg-white py-16">
+    <section id="guide" className="bg-white dark:bg-gray-800 py-16 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4">
         {/* Heading */}
-       {/* Heading */}
-<div className="grid grid-cols-1 md:grid-cols-3 items-center mb-12">
-  {/* Left text */}
-  <div className="flex justify-start">
-    <span className="text-gray-500 border-l-4 border-indigo-500 pl-2">
-      How It Works
-    </span>
-  </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 items-center mb-12">
+          {/* Left text */}
+          <div className="flex justify-start">
+            <span className="text-gray-500 dark:text-gray-400 border-l-4 border-indigo-500 pl-2">
+              How It Works
+            </span>
+          </div>
 
-  {/* Middle heading */}
-  <div className="flex justify-center">
-    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center">
-      Simple Steps to College Success
-    </h2>
-  </div>
+          {/* Middle heading */}
+          <div className="flex justify-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white text-center">
+              Simple Steps to College Success
+            </h2>
+          </div>
 
-  {/* Right icon */}
-  <div className="flex justify-end">
-    <span className="text-4xl">🎓</span>
-  </div>
-</div>
-
+          {/* Right icon */}
+          <div className="flex justify-end">
+            <span className="text-4xl">🎓</span>
+          </div>
+        </div>
 
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {guideItems.map((item, idx) => {
             const isImageCard = !!item.image;
+            
             return (
-              <div
+              <motion.div
                 key={idx}
-                // same overall dimensions for every card
-                className="relative h-[350px] rounded-xl flex flex-col"
+                variants={isImageCard ? imageCardVariants : cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                whileHover="hover"
+                viewport={{ once: true, margin: "-50px" }}
+                className="relative h-[350px] rounded-xl flex flex-col overflow-hidden group cursor-pointer"
                 style={{
                   // for non-image cards apply folder clip + background color
                   ...(isImageCard
@@ -100,33 +138,78 @@ const ApplicationGuide = () => {
                 {isImageCard ? (
                   // === Image card: no clip-path, normal rounded rectangle ===
                   <div className="relative flex-1 overflow-hidden rounded-xl">
-                    <img
+                    <motion.img
                       src={item.image}
                       alt={item.title}
                       className="w-full h-full object-cover"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.4 }}
                     />
-                    {/* overlay for readability */}
-                    <div className="absolute inset-0 bg-black/40"></div>
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
 
                     {/* content pulled up so it doesn't touch the bottom */}
                     <div className="absolute left-6 right-6 bottom-14">
-                      <h3 className="text-base font-semibold text-white mb-3 leading-snug">
+                      <motion.h3 
+                        className="text-base font-semibold text-white mb-3 leading-snug"
+                        whileHover={{ x: 5 }}
+                        transition={{ duration: 0.2 }}
+                      >
                         {item.title}
-                      </h3>
+                      </motion.h3>
                       {item.button && (
-                        <CustomButton className="py-2 px-5 text-sm">
-                          {item.button} →
-                        </CustomButton>
+                        <motion.div
+                          whileHover={{ x: 5 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <CustomButton className="py-2 px-5 text-sm group-hover:bg-indigo-700 transition-colors">
+                            {item.button} →
+                          </CustomButton>
+                        </motion.div>
                       )}
                     </div>
                   </div>
                 ) : (
                   // === Folder-shaped card content ===
-                  <div className="p-6 flex-1 flex items-center text-white">
-                    <IconList items={[item]} className="w-full" />
+                  <motion.div 
+                    className="p-6 flex-1 flex items-center text-white group-hover:bg-indigo-700 transition-colors duration-300"
+                    whileHover={{ 
+                      backgroundColor: "#3730a3", // darker indigo on hover
+                    }}
+                  >
+                    <div className="w-full">
+                      <div className="text-4xl mb-4">
+                        
+                        
+                        
+                      
+                        {item.icon}
+                      </div>
+                      <motion.h3 
+                        className="font-bold text-lg mb-2"
+                        whileHover={{ x: 5 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {item.title}
+                      </motion.h3>
+                      <motion.p 
+                        className="text-sm text-indigo-100 leading-snug opacity-90 group-hover:opacity-100 transition-opacity"
+                        whileHover={{ x: 3 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {item.description}
+                      </motion.p>
+                    </div>
+                  </motion.div>
+                )}
+                
+                {/* Subtle glow effect on hover */}
+                {!isImageCard && (
+                  <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-indigo-400 to-purple-400 blur-md opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
                   </div>
                 )}
-              </div>
+              </motion.div>
             );
           })}
         </div>

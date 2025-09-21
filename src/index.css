@@ -26,3 +26,16 @@
     @apply hover:shadow-lg hover:scale-105 transition-transform duration-300;
   }
 }
+@layer utilities {
+  .loading-spinner {
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+}
+
+.content-max {
+  @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+}

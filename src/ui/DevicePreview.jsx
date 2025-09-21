@@ -61,7 +61,7 @@ const DevicePreview = () => {
       className="relative flex justify-center items-center w-full max-w-sm"
       style={{ perspective: "1200px" }}
     >
-      <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 to-indigo-300/20 rounded-3xl blur-lg scale-105 translate-y-6"></div>
+      <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 to-indigo-300/20 dark:from-indigo-600/10 dark:to-indigo-400/10 rounded-3xl blur-lg scale-105 translate-y-6"></div>
 
       <div
         ref={phoneRef}
